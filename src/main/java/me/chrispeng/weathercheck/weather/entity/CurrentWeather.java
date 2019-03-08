@@ -2,6 +2,7 @@ package me.chrispeng.weathercheck.weather.entity;
 
 import lombok.Getter;
 
+import java.time.Instant;
 import java.time.LocalTime;
 
 @Getter
@@ -30,13 +31,27 @@ public class CurrentWeather {
     /**
      * 日出时间
      */
-    private LocalTime sunrise;
+    private Instant sunrise;
     /**
      * 日落时间
      */
-    private LocalTime sunset;
+    private Instant sunset;
     /**
      * 经纬度
      */
     private GeoCoords geoCoords;
+
+    public static CurrentWeather create(String description, Temperature temperature, Wind wind, float pressure,
+                                    int humidity, Instant sunrise, Instant sunset, GeoCoords geoCoords) {
+        CurrentWeather currentWeather = new CurrentWeather();
+        currentWeather.description = description;
+        currentWeather.temperature = temperature;
+        currentWeather.wind = wind;
+        currentWeather.pressure = pressure;
+        currentWeather.humidity = humidity;
+        currentWeather.sunrise = sunrise;
+        currentWeather.sunset = sunset;
+        currentWeather.geoCoords = geoCoords;
+        return currentWeather;
+    }
 }

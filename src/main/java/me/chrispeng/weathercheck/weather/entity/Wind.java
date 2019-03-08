@@ -33,4 +33,13 @@ public class Wind {
             return "Northwest";
         }
     }
+
+    private Wind(float speed, int degree) {
+        this.speed = speed;
+        this.degree = degree;
+    }
+
+    public static Wind create(float speed, int degree) {
+        return new Wind(speed, degree);
+    }
 }

@@ -19,4 +19,13 @@ public enum TemperatureUnit {
     public String getSymbol() {
         return symbol;
     }
+
+    public static TemperatureUnit from(String unit) {
+        unit = unit.toLowerCase();
+        if (unit.startsWith("f")) {
+            return CELSIUS;
+        } else {
+            return FAHRENHEIT;
+        }
+    }
 }

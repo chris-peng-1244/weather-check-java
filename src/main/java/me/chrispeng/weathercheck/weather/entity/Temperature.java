@@ -7,9 +7,21 @@ public final class Temperature {
     private float value;
     private TemperatureUnit unit;
 
-    public Temperature(float value, TemperatureUnit unit) {
+    private Temperature(float value, TemperatureUnit unit) {
         this.value = value;
         this.unit = unit;
+    }
+
+    public static Temperature inCelsius(float value) {
+        return new Temperature(value, TemperatureUnit.CELSIUS);
+    }
+
+    public static Temperature inFahrenheit(float value) {
+        return new Temperature(value, TemperatureUnit.FAHRENHEIT);
+    }
+
+    public static Temperature ofUnit(float value, TemperatureUnit unit) {
+        return new Temperature(value, unit);
     }
 
     public float getValue() {
